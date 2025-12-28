@@ -1,0 +1,131 @@
+<script>
+    //frequency
+    function getCharFrequency(str) {
+  const freq = {};
+
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+
+    if (freq[char]) {
+      freq[char]++;
+    } else {
+      freq[char] = 1;
+    }
+  }
+
+  return freq;
+}
+getCharFrequency("banana"); 
+// { b: 1, a: 3, n: 2 }
+
+//Second largest
+function secondLargest(arr) {
+  let largest = -Infinity;
+  let second = -Infinity;
+
+  for (let num of arr) {
+    if (num > largest) {
+      second = largest;
+      largest = num;
+    } else if (num < largest && num > second) {
+      second = num;
+    }
+  }
+
+  return second === -Infinity ? null : second;
+}
+secondLargest([5, 5, 3, 1]); // 3
+
+// anagram
+function isAnagram(str1, str2) {
+  const clean = str =>
+    str.toLowerCase().replace(/\s/g, "");
+
+  const s1 = clean(str1);
+  const s2 = clean(str2);
+
+  if (s1.length !== s2.length) return false;
+
+  const count = {};
+
+  for (let char of s1) {
+    count[char] = (count[char] || 0) + 1;
+  }
+
+  for (let char of s2) {
+    if (!count[char]) return false;
+    count[char]--;
+  }
+
+  return true;
+}
+isAnagram("listen", "silent"); // true
+
+//Remove duplicates without set pure logic
+
+function uniqueValues(arr) {
+  const result = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (!result.includes(arr[i])) {
+      result.push(arr[i]);
+    }
+  }
+
+  return result;
+}
+uniqueValues([1, 2, 2, 3, 1, 4]);
+// [1, 2, 3, 4]
+
+//Group people by age
+
+function groupByAge(people) {
+  const result = {};
+
+  for (let person of people) {
+    if (!result[person.age]) {
+      result[person.age] = [];
+    }
+    result[person.age].push(person.name);
+  }
+
+  return result;
+}
+//Factorial
+
+function factorial(n) {
+  let result = 1;
+
+  for (let i = 1; i <= n; i++) {
+    result *= i;
+  }
+
+  return result;
+}
+
+//reverse a string
+
+function reverseString(str) {
+  let reversed = "";
+
+  for (let i = str.length - 1; i >= 0; i--) {
+    reversed += str[i];
+  }
+
+  return reversed;
+}
+
+//prime number using function
+
+function isPrime(num) {
+  if (num <= 1) return false;
+
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) return false;
+  }
+
+  return true;
+}
+
+
+</script>

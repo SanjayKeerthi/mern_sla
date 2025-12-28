@@ -1,0 +1,86 @@
+<script>
+    // Function declaration
+    function add(a,b){
+        return a+b;
+    }
+    // Function Expression 
+    let add1 = function(a,b){
+        return a+b;
+    }
+    //Arrow Function 
+    const add2 = (a,b)=>a+b;
+
+    //Arrow function with block body + return
+    const greet = (name)=>{
+        return "Hello " + name
+    };
+    //Arrow function with implicit return
+    const greeet = (name) => "Hello " + name; 
+    //Arrow function with no parenthesis (Single parameter)
+    const greeeet = name => "Hello " + name;
+
+    //Arrow function using tax and amount
+    const taxpayment = (amount,taxpercentage)=>amount + (amount*taxpercentage/100);
+
+    const user = {
+        name : "Chezhiyan",
+
+        //Function Declaration
+        sayName:function(){
+            console.log(this.name);
+        },
+        // Normal functions have their own this
+        // When called as user.sayName(), this refers to the user object
+        sayNameArrow:()=>{
+            console.log(this.name);
+            
+        },
+        // Arrow functions do NOT have their own this
+        // this is taken from the outer (lexical) scope, not the user object
+        // In this case, this.name is not user.name
+    };
+        //Square root using implicit return
+         const square = n => n*n;
+         console.log(square(5));
+         
+         //SumAll using normal function
+            function sumall(){
+                let sum = 0;
+
+                for(let i=0;i<arguments.length;i++){
+                    sum += arguments[i];
+                }
+                return sum;
+            }
+            //sumall using Arrow function
+            const sumAll = (... numbers)=>
+            numbers.reduce((sum,num)=>sum+num,0)
+
+            // array using filter
+            const marks = [40,55,65,76,85,92,60,54]
+            function getpassedmarks(marksArray){
+                return marksArray.filter(mark=>mark >= 50);
+            }
+            console.log(getPassedMarks(marks));
+
+            //rewrite into another forms in functions
+            //function declaration
+            function formatName(firstName, lastName) {
+                return firstName.toUpperCase() + " " + lastName.toUpperCase();
+            }
+            //function expression
+            const formatName = function (firstName, lastName) {
+            return firstName.toUpperCase() + " " + lastName.toUpperCase();
+            };
+
+            //Error fix
+            console.log(add(2, 3));
+
+            function add(a, b) {
+            return a + b;
+        }
+
+            const sub = (a, b) => a - b;
+            console.log(sub(5, 2));
+
+</script>
