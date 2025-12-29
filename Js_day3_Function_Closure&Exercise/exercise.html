@@ -1,0 +1,200 @@
+<script>
+  //Even number using loop
+  let numbers = [2, 4, 6, 7, 8, 9, 10];
+  function findEvenNumber(arr) {
+    let result = [];
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] % 2 == 0) {
+        result.push(arr[i]);
+      }
+    }
+    return result;
+  }
+  console.log(findEvenNumber(numbers));
+
+  //Days of week using switch
+
+  function week(day) {
+    switch (day) {
+      case 1:
+        return "Monday";
+        break;
+      case 2:
+        return "Tuesday";
+        break;
+      case 3:
+        return "Wednesday";
+        break;
+      case 4:
+        return "Thursday";
+        break;
+      case 5:
+        return "Friday";
+        break;
+      case 6:
+        return "Saturday";
+        break;
+      case 7:
+        return "Sunday";
+        break;
+      default:
+        return "There is No more days";
+    }
+  }
+  console.log(week(2));
+
+  //Grade count
+
+  let students = [
+    { name: "Arun", marks: 92 },
+    { name: "Marx", marks: 85 },
+    { name: "Kalyx", marks: 70 },
+    { name: "Charan", marks: 95 },
+    { name: "Esha", marks: 78 },
+  ];
+  function countGrades(students){
+    let result = {A:0,B:0,C:0}
+    for(let i=0;i<students.length;i++){
+        let marks = students[i].marks;
+
+        if(marks >=90){
+            result.A++;
+        }
+        else if(marks >=75){
+            result.B++;
+        }
+        else{
+            result.C++
+        }
+    }
+    return result;
+  }
+  console.log(countGrades(students));
+  
+  // Truthy/Falsy
+  function checkTruthy(value){
+    return value ? "true":"false"
+  }
+  console.log(checkTruthy(1));
+
+  //Filter truthy values
+
+  let values = ["Sanjay",1,true,false,0,undefined,null,"",40]
+  function findTruthyValues(arr){
+    let result = []
+    for(let i=0;i<arr.length;i++){
+        if(arr[i]){
+            result.push(arr[i]);
+        }
+    }
+    return result;
+  }
+  console.log(findTruthyValues(values));
+
+  // Name Logic
+
+  function getName(firstname,lastname,nickname){
+    if(firstname&&lastname){
+        return firstname + " " + lastname;
+    }
+    else if(firstname){
+        return firstname;
+    }
+    else if(lastname){
+        return lastname;
+    }
+    else if(nickname){
+        return nickname;
+    }
+    else{
+        return "Anonymous"
+    }
+  }
+  console.log(getName("Arun","Kumar","AK"));
+  console.log(getName("Arun","","AK"));
+  console.log(getName("","","Hero"));
+  console.log(getName("","",""));
+
+  //Var,Let,Const
+
+  var a = 10;
+a = 20; // works
+
+let b = 10;
+b = 20; // works
+
+const c = 10;
+// c = 20;  error
+
+const obj = { name: "John" };
+obj.name = "Mike"; //  works
+// obj = {}  error
+
+// var, let → reassignment allowed
+// const → reassignment NOT allowed
+// const object properties CAN be modified
+
+//closure Multiplier
+
+function createMultiplier(x){
+    return function(y){
+        return x*y
+    }
+}
+let twice = createMultiplier(5);
+let triple = createMultiplier(5);
+console.log(twice(2));
+console.log(triple(3));
+
+//Password
+function secretPassword() {
+  let password = ""; // private variable
+
+  return {
+    setPassword(newPass) {
+      password = newPass;
+    },
+    checkPassword(guess) {
+      return guess === password;
+    }
+  };
+}
+
+// Create password manager
+let myPassword = secretPassword();
+
+// Set password
+myPassword.setPassword("1234");
+
+// Check passwords
+console.log(myPassword.checkPassword("1234")); // true
+console.log(myPassword.checkPassword("abcd")); // false
+
+//call once
+function once(fn) {
+  let called = false;
+  let result;
+
+  return function () {
+    if (!called) {
+      result = fn();
+      called = true;
+    }
+    return result;
+  };
+}
+
+
+
+
+
+
+  
+
+  
+  
+
+  
+  
+  
+</script>
