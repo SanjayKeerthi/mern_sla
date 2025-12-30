@@ -1,0 +1,93 @@
+<script>
+    //Task completed after call back runs 
+
+    function dotask(callback){
+        callback()
+        console.log("Task is completed");
+       
+    }
+    dotask(()=>{
+        console.log("Task is Running");
+        
+    })
+
+    //pass callback to validate age eligibility and print result
+
+    function validateage(age,callback){
+        const result = age >=18 ? "Eligible" : "Not Eligible"
+        callback(result)
+    }
+    validateage(20,(message)=>{
+            console.log(message);
+            
+        })
+
+        //simulate API calls -> success callback -> final message
+
+        function fakeapicall (callback){
+            console.log("API call started");
+            callback();
+            console.log("Final message:Process finished");
+        }
+        fakeapicall(()=>{
+            console.log("API Successfull");
+            
+        })
+
+        //Add 3 elements to array and tremove the first element
+
+        let arr = [10,20,30,40]
+        arr.push(50,60,70)//add elements
+        arr.shift()//remove the first element in the array
+        console.log(arr);
+
+        //Replace the last element in an array without using index
+
+        let nums = [10,20,30,40]
+        nums.pop()
+        nums.push(70);
+        console.log(nums);
+        
+        //Remove exactly two elements from middle of an array
+
+        const arry = [10,20,30,40,50,60,70]
+        const middleIndex = Math.floor(arry.length/2)-1;
+        arry.splice(middleIndex,2);
+        console.log(arry);
+        
+        //From an array, return only even numbers using filter
+
+        const numbers = [1,2,3,4,5,6,]
+        const even = numbers.filter(num=>num%2==0)
+        console.log(even);
+
+        //Convert array of prices to GST- added prices using MAP
+
+        const prices = [100,200,300,400,500]
+        const gst = 18
+        const gstprices = prices.map(price=>price+(price*gst)/100)
+        console.log(gstprices);
+
+        //Fid total Salary from salary array using reduce
+
+        const salary = [10000,20000,30000,50000]
+        const netvalue = salary.reduce((salary,total)=>salary+total,0)
+        console.log(netvalue);
+
+        //Which array method always returns a new array
+        //map() and filter()
+        
+        //Which method returns a single value from array
+        //reduce()
+
+        //Is foreach() a higher-order function
+        //Yes,it accepts a call back function
+
+        //map() modify original array
+        //no,it cannot modify original array
+
+        //Which method is best for searching condition based data
+        //filter()
+        
+     
+</script>
