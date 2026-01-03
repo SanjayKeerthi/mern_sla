@@ -1,0 +1,28 @@
+<script>
+    //Comapre || and ?? with value 0
+    let count = 0;
+    console.log(count || 10);
+    console.log(count ?? 10);
+    //Handle empty string using ??
+    let username = "";
+    console.log(username || "Guest");
+    console.log(username ?? "Guest");
+    //provide a default value using ??
+    let price;
+    let finalPrice = price ?? 100;
+    console.log(finalPrice);
+    //combine optional chaining (?.) with nullish coalescing (??) 
+    const user = {
+        profile:{
+            name:"Sanjay"
+        }
+    };
+    const city = user.profile?.city??"Not Provided";
+    console.log(city);
+    
+    
+    
+    
+    
+    
+</script>

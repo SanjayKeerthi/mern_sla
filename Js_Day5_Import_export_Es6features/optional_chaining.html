@@ -1,0 +1,61 @@
+<script>
+    // without optional chaining (can crash)
+
+    const user = {
+        profile: {
+            name:"Sanjay"
+        }
+    };
+    console.log(user.profile.address.city);
+
+    // with optional chaining 
+
+    console.log(user.profile?.address?.city);
+
+    //Replace && consition with optional chaining
+
+    const user1 = {name: "Sanjay"};
+    const city = user && user.address && user.address.city;
+    console.log(city);
+
+    //New way
+    const city1 = user.address?.city;
+    console.log(city);
+
+    //Use optional chaining on array access 
+    const students = [
+        {name: "Amit"},
+        {name:"Sanjay"}
+    ];
+    console.log(students[1]?.name);
+    console.log(students[5]?.name);
+
+    //simulate API response and access data safely
+
+    const apiResponse = {
+        status: 200,
+        data:{
+            user:{
+                id:1,
+                profile:{
+                    email: "sanjay@gmail.com"
+                }
+            }
+        }
+    };
+
+    //safe access 
+    const email = apiResponse.data?.user?.profile?.email;
+    const phone = apiResponse.data?.user?.profile?.phone;
+    
+    console.log(email);
+    console.log(phone);
+    
+    
+    
+    
+     
+    
+    
+    
+</script>

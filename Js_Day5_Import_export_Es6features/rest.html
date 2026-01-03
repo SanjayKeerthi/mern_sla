@@ -1,0 +1,45 @@
+<script>
+    //function that accepts unlimited arguments
+    function sum(...numbers){
+        let total = 0;
+        for (let num of numbers){
+            total += num;
+        }
+        return total;
+    }
+    console.log(sum(10,20,30,40));
+    
+    // Use rest parameter with reduce()
+
+    function calculateTotal(...values){
+        return values.reduce((sum,val)=>sum+val,0);
+}
+console.log(calculateTotal(5,10,15));
+
+//Combine rest with destrucuring
+//Array Destructuring
+
+const marks = [90,85,88,92];
+const [first,second,...remaining] = marks;
+console.log(first);
+console.log(second);
+console.log(remaining);
+
+//Object Destructuring
+const student = {
+    name: "Sanjay",
+    age:22,
+    course:"Data Analytics",
+    city:"Chennai"
+};
+const {name,...otherdetails}=student;
+
+console.log(name);
+console.log(otherdetails);
+
+
+
+
+
+
+</script>

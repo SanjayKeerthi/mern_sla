@@ -1,0 +1,35 @@
+<script>
+    //copy array using spread
+    let value = [1,2,3,4,5]
+    let copynumber = [... value]
+    console.log(copynumber);
+    
+    //merge two arrays
+    const arr1 = [10,20,30]
+    const arr2 = [40,50,60]
+    const result = [... arr1,...arr2]
+    console.log(result);
+
+    //update an object using spread
+    const student = {
+        name:"Sanjay",
+        age:22
+    };
+
+    const updatestudent = {
+        ...student,
+        age:23,
+        course: "Data Analytics"
+    };
+    console.log(updatestudent);
+    
+    //Pass array values into a function using spread
+
+    function add(a,b,c){
+        return a+b+c;
+    }
+    const values = [10,20,30];
+    console.log(add(...values));
+    
+    
+</script>

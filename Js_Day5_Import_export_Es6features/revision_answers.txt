@@ -1,0 +1,215 @@
+1. What is Closure? Give a real-life use case.
+    Closure means a function remembers variables from its outer scope, even after the outer function has finished executing.
+   
+   function counter() {
+  let count = 0;
+  return function () {
+    count++;
+    return count;
+  };
+}
+
+const increment = counter();
+increment(); // 1
+increment(); // 2
+
+2. What happens if we don’t use break in switch?
+    If break is not used, execution falls through to the next case.
+ 
+ let x = 2;
+switch (x) {
+  case 1:
+    console.log("One");
+  case 2:
+    console.log("Two");
+  case 3:
+    console.log("Three");
+}
+
+3. | null                   | undefined                          |
+| ---------------------- | ---------------------------------- |
+| Assigned intentionally | Default value                      |
+| Means "no value"       | Variable declared but not assigned |
+| `typeof` → object      | `typeof` → undefined               |
+
+4. What is Prototype in JavaScript?
+    Every JavaScript object has a prototype, which allows property & method sharing.
+
+function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.sayHi = function () {
+  console.log("Hi");
+};
+
+5.  Why was ES6 introduced?
+
+ES6 was introduced to:
+
+Make JS cleaner & modern
+
+Support large applications
+
+Improve readability
+
+Add features like:
+
+Arrow functions
+
+Classes
+
+Modules
+
+Promises
+
+6. | ES5        | ES6            |
+| ---------- | -------------- |
+| `var`      | `let`, `const` |
+| Callbacks  | Promises       |
+| No classes | Classes        |
+| Verbose    | Cleaner syntax |
+
+7. Explain Block Scope with example
+    let and const are block-scoped.
+
+    {
+  let x = 10;
+}
+// x is NOT accessible here
+
+8. What is Arrow Function & difference from normal function?
+Arrow Function:
+const add = (a, b) => a + b;
+
+| Arrow               | Normal        |
+| ------------------- | ------------- |
+| No `this`           | Has `this`    |
+| Short syntax        | Verbose       |
+| No arguments object | Has arguments |
+
+9. Why arrow functions don’t have their own this?
+
+Arrow functions inherit this from parent scope, preventing confusion in callbacks.
+
+Used heavily in React event handlers.
+
+10. What are Template Literals?
+
+Used for string interpolation and multiline strings.
+
+const name = "Sanjay";
+console.log(`Hello ${name}`);
+
+11. What is Destructuring?
+
+Extract values from arrays or objects.
+
+Object Destructuring:
+const user = { name: "A", age: 20 };
+const { name, age } = user;
+
+12. Convert ES5 function to ES6
+ES5:
+function sum(a, b) {
+  return a + b;
+}
+
+ES6:
+const sum = (a, b) => a + b;
+
+13. Swap two numbers without third variable
+let a = 10, b = 20;
+
+[a, b] = [b, a];
+
+14. Synchronous vs Asynchronous JS
+Sync	            Async
+Blocks execution	Non-blocking
+One task at a time	Multiple tasks
+Slow UI	Smooth UI
+
+15. What is a Promise?
+
+A Promise represents future completion or failure of an async task.
+
+new Promise((resolve, reject) => {})
+
+16. Promise States
+
+Pending
+
+Fulfilled
+
+Rejected
+
+17. Callback vs Promise
+Callback	    Promise
+Callback hell	Clean chaining
+Hard error handling	.catch()
+Old approach	Modern
+
+18. What is async/await?
+
+Cleaner way to write async code.
+
+async function fetchData() {
+  const data = await fetch(url);
+}
+
+19. What is async/await?
+
+Cleaner way to write async code.
+
+async function fetchData() {
+  const data = await fetch(url);
+}
+
+20. What happens if promise rejection is not handled?
+
+Causes Unhandled Promise Rejection
+
+App may crash or behave unpredictably
+
+21. Optional Chaining (?.)
+
+Prevents errors when accessing deep properties.
+
+user?.address?.city
+
+22. Nullish Coalescing (??)
+
+Returns right value only if left is null or undefined.
+
+let x = null ?? "default"; // default
+
+23. Difference between || and ??
+
+| || | ?? |
+|----|----|
+| Checks falsy values | Checks null/undefined only |
+| 0 is false | 0 is valid |
+
+24. What is Event Loop?
+
+Manages async operations in JavaScript.
+
+Executes call stack
+
+Moves async tasks to queues
+
+25. | Microtask       | Callback       |
+| --------------- | -------------- |
+| Promises        | setTimeout     |
+| Higher priority | Lower priority |
+
+26. What is setTimeout? Is it async?
+
+setTimeout schedules code after delay.
+
+setTimeout(() => {
+  console.log("Hello");
+}, 1000);
+
+
+ Yes, it is asynchronous.

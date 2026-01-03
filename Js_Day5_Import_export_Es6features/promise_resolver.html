@@ -1,0 +1,45 @@
+<script>
+// Promise.withResolvers() is a new ES2024 method that lets you create a Promise and directly access its resolve and reject functions without extra boilerplate.
+//  In simple words:
+// It creates a promise and gives you full control over when and how it finishes.
+// Earlier, you had to create a promise using a constructor and capture resolve/reject manually. ES2024 makes this cleaner, safer, and more readable. 
+
+//old way
+
+let resolveFn, rejectFn;
+
+const promise = new Promise((resolve, reject) => {
+  resolveFn = resolve;
+  rejectFn = reject;
+});
+
+later
+resolveFn("Success!");
+
+//New way
+
+// const { promise, resolve, reject } = Promise.withResolvers();
+
+// // later
+// resolve("Success!");
+
+//Event based system
+
+// const { promise, resolve } = Promise.withResolvers();
+
+// button.addEventListener("click", resolve);
+
+// await promise;
+// console.log("Button clicked!");
+
+//Bridging callbacks to aysnc/await
+
+function waitForCallback(cb) {
+  const { promise, resolve } = Promise.withResolvers();
+  cb(resolve);
+  return promise;
+}
+
+
+
+</script>

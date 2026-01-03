@@ -1,0 +1,49 @@
+<script>
+    // Destructure value from array
+    const color = [red,blue,green,yellow]
+    const [first,second,third,fourth]=colors;
+    console.log(first);
+    console.log(second);
+    console.log(third);
+    console.log(fourth);
+
+    // Destructure value from object
+    const student = {
+        name:"Sanjay",
+        age:22,
+        course:"Data Analytics"
+    }
+
+    const {name,age,course} = student;
+    console.log(name);
+    console.log(age);
+    console.log(course);
+    
+    //Rename variables while destructuring
+
+    const employee = {
+        id:101,
+        department:"IT"
+    };
+    const {id:empId , department:dept}=employee;
+
+    console.log(empId);
+    console.log(dept);
+
+    //Destructure Function parameters
+
+    function printStudent ({name,age}){
+        console.log(`Name : ${name}`);
+        console.log(`Age : ${age}`);
+    }
+    const student1 = {
+        name:"Sanjay",
+        age:22
+    }
+    printstudent(student1);
+    
+    
+    
+    
+
+</script>

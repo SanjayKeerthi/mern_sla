@@ -1,0 +1,87 @@
+<script>
+    //Create a student class with name and age 
+    class student {
+        constructor(name,age){
+            this.name = name;
+            this.age = age;
+        }
+    }
+    const student1 = new student ("Sanjay" , 22);
+    console.log(student1);
+    
+    //Create a bankaccount class with deposit and withdraw methods
+
+    class BankAccount {
+        constructor(accountHolder, balance){
+            this.accountHolder = accountHolder;
+            this.balance = balance;
+        }
+        deposit (amount){
+            this.balaance += amount;
+            console.log(`Deposited: ${amount}`);
+            console.log(`Balance: ${this.balance}`);
+        }
+        withdraw(amount){
+            if(amount > this.balance){
+                console.log("Insufficient balance");
+            }
+            else{
+                this.balance -= amount;
+                console.log(`Withdrawn: ${amount}`);
+                console.log(`Balance: ${this.balance}`);
+                
+                
+            }
+        }
+    }
+
+    const acc1 = new BankAccount("Sanjay",5000);
+    acc1.deposit(2000);
+    acc1.withdraw(3000);
+
+    //create object from single class
+
+    class Employee {
+        constructor(name,id){
+            this.name = name;
+            this.id = id;
+        }
+    }
+    const emp1 = new employee (1,"Arjun");
+    const emp2 = new employee (2,"Saraha");
+    const emp3 = new employee (3,"Priya");
+
+    console.log(emp1);
+    console.log(emp2);
+    console.log(emp3);
+    
+    
+    //convert a function-based constructor into a class
+
+    function Car(brand, year) {
+  this.brand = brand;
+  this.year = year;
+}
+
+Car.prototype.getDetails = function () {
+  return this.brand + " - " + this.year;
+};
+
+//New way
+
+class Car {
+  constructor(brand, year) {
+    this.brand = brand;
+    this.year = year;
+  }
+
+  getDetails() {
+    return `${this.brand} - ${this.year}`;
+  }
+}
+
+const car1 = new Car("Toyota", 2023);
+console.log(car1.getDetails());
+
+
+</script>

@@ -1,0 +1,50 @@
+<script>
+    //var keyword
+    var price = 200;
+    var tax = 18;
+    var result = price + (price*tax)/100;
+    console.log(result);
+
+    //let and const keyword
+    let rate = 550;
+    const GST = 18;
+    const ans = rate + (rate*GST)/100;
+    console.log(ans);
+
+    // let block scope
+    if(true){
+        let message = "Hello From inside block"
+        console.log(message);
+    }
+    // console.log(message); //let is block scope
+
+    //Reassign const and observe it
+
+    const age = 22;
+    // age = 23; //Not allowed
+    // TypeError: Assignment to constant variable
+
+    //Identify where var causes a bug & fix it with let
+
+    //Buggy code
+    //var is function scoped,So all callbacks share the same i
+    for(var i=1;i<=3;i++){
+        setTimeout(()=>{
+            console.log(i);
+        },1000);
+    }
+
+    //Fixed code(Using let)
+    //let is block scoped,each loop get its own i
+    for(let i=0;i<=4;i++){
+        setTimeout(()=>{
+            console.log(i);
+            },1000);
+    }
+    
+     
+    
+
+
+    
+</script>

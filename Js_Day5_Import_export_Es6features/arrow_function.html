@@ -1,0 +1,50 @@
+<script>
+    // Normal Function
+    function add (a,b){
+        return a+b;
+    }
+    // Arrow Function 
+    const plus = ()=>{
+        return a+b;
+    }
+
+
+    //Arrow Function with one parameter
+    
+    const square = n => n*n;
+    console.log(square(5));
+
+    //Arrow Function that return object
+    //wrong method
+    
+    // const getuser = () =>{
+    //     name:"Sanjay",
+    //     Education:"B.Tech Information Technology"
+    // };
+    
+    const user = () => ({
+        name:"Sanjay",
+        Grade:"B.Tech Information Technology"
+    })
+console.log(user());
+
+//Arrow functions to double the array using array
+
+let double = [1,2,3,4]
+let  answer = double.map(num=>num*2)
+console.log(answer);
+
+//Praticses
+const greet = name => `Hello ${name}`
+
+const prices = [100,200,300]
+const tax = prices.map(p=>p+p*0.18);
+
+console.log(greet("Sanjay"));
+console.log(tax);
+
+
+
+
+    
+</script>
