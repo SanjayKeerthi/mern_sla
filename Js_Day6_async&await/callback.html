@@ -1,0 +1,78 @@
+<script>
+    //settimeout callback - print message
+
+    function showmessage (){
+        console.log("Hello after 2 seconds");
+        setTimeout(showmessage,2000);
+
+        //callback based calculator
+
+        function calculate (operation,a,b){
+            operation(a,b)
+        }
+        function add (x,y){
+            console.log("Addition:",x+y);
+        }
+        function multiplication(m,n){
+            console.log("Multiplication:",m * n);
+        }
+        calculate(10,5,add);
+        calculate(10,5,multiplication);
+    }
+
+    //Nested callback example (callback hell)
+
+    setTimeout(()=>{
+        console.log("step 1");
+    
+    setTimeout(()=>{
+        console.log("step 2");
+
+    setTimeout(()=>{
+        console.log("step 3");
+        
+    },1000)
+        
+    },1000)
+    },1000);
+
+    //callback error handling
+
+    function divide(a,b,callback){
+        if(b===0){
+            console.log("It cannot be divided",null);
+        }
+        else{
+            console.log("It is divisible",a/b);
+        }
+    }
+    divide(10,2,(error,result)=>{
+        if(error){
+            console.log(error);
+        }else{
+            console.log("Result:",result);
+            
+        }
+    });
+
+    //Simulate API using callback
+
+    function fetchuserdata(callback){
+        setTimeout(()=>{
+            const user = {id:1,name:"Sanjay"};
+            callback(null,user);
+        },2000)
+    }
+
+    fetchUserData ((error , data)=>{
+        if(error){
+            console.log("Error:",error);
+        }
+        else{
+            console.log("Userdata:",data);
+            
+        }
+    });
+
+    
+</script>

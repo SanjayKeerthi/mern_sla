@@ -1,0 +1,64 @@
+<script>
+    //Promise resolve after delay
+
+    function delaymessage(){
+        return new Promise((resolve)=>{
+            setTimeout(()=>{
+                resolve("Resolved after 2 seconds")
+            },2000)
+        })
+    }
+    delaymessage().then(msg=>console.log(msg));
+
+    //Promise reject example
+
+    function checkAge(age){
+        return new promise((resolve,reject)=>{
+            if(age >= 18){
+                resolve("Access granted")
+            }
+            else{
+                reject("Access denied")
+            }
+        });
+    }
+    checkAge(16)
+    .then(result => console.log(result))
+    .catch(error => console.log(error));
+
+    //Promise Chaining
+
+    function getNumber () {
+        return promise.resolve(5)
+    }
+    getNumber()
+    .then(num => num*2)
+    .then(num => num + 10)
+    .then(result => console.log(result));
+    
+
+    //promise.all usage
+
+const p1 = Promise.resolve(10);
+const p2 = Promise.resolve(20);
+const p3 = Promise.resolve(30);
+
+Promise.all([p1, p2, p3])
+  .then(values => {
+    console.log(values);        // [10, 20, 30]
+    console.log("Total:", values.reduce((a, b) => a + b));
+  })
+  .catch(error => console.log(error));
+
+  //Promise version
+
+  function fetchDataPromise(){
+    return new promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve("Data received")
+        },1000);
+    });
+  }
+  fetchDataPromise()
+   .then(data => console.log(data));
+</script>
