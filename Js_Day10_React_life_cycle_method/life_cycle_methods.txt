@@ -1,0 +1,120 @@
+1. What is a class component in React, and how is it different from a functional component?
+
+A class component is a React component created using an ES6 class that extends React.Component. It can manage state, use lifecycle methods, and access props via this.props.
+
+class MyComponent extends React.Component {
+  render() {
+    return <h1>Hello</h1>;
+  }
+}
+
+| Feature        | Class Component            | Functional Component |
+| -------------- | -------------------------- | -------------------- |
+| Syntax         | ES6 class                  | JavaScript function  |
+| State          | `this.state`, `setState()` | `useState()` Hook    |
+| Lifecycle      | Lifecycle methods          | `useEffect()` Hook   |
+| `this` keyword | Required                   | Not used             |
+| Modern usage   | Less preferred             | Preferred (Hooks)    |
+
+
+2. Explain the different lifecycle methods of a React class component and common use cases
+
+* Mounting(Component creation)
+| Method                | Use Case                                   |
+| --------------------- | ------------------------------------------ |
+| `constructor()`       | Initialize state, bind methods             |
+| `componentDidMount()` | API calls, subscriptions, DOM manipulation |
+
+componentDidMount() {
+  fetchData();
+}
+
+* Updating (Props or state change)
+
+| Method                    | Use Case                    |
+| ------------------------- | --------------------------- |
+| `shouldComponentUpdate()` | Performance optimization    |
+| `componentDidUpdate()`    | React to prop/state changes |
+
+componentDidUpdate(prevProps) {
+  if (prevProps.id !== this.props.id) {
+    fetchNewData();
+  }
+}
+
+* Unmounting (Component Removal)
+
+| Method                   | Use Case                  |
+| ------------------------ | ------------------------- |
+| `componentWillUnmount()` | Cleanup timers, listeners |
+
+componentWillUnmount() {
+  clearInterval(this.timer);
+}
+
+
+3. How does setState work in class components, and why is it asynchronous?
+
+setState() updates the component’s state and triggers a re-render, but it does not update state immediately.
+
+this.setState({ count: this.state.count + 1 });
+
+Why is setState asynchronous?
+
+React batches multiple state updates for performance
+Prevents unnecessary re-renders
+Improves UI efficiency
+
+Correct way to update based on previous state:
+
+this.setState(prevState => ({
+  count: prevState.count + 1
+}));
+
+4. What is a PureComponent, and how is it different from a regular class component?
+
+PureComponent is a special class component that automatically implements shouldComponentUpdate() using shallow comparison.
+
+class MyComponent extends React.PureComponent {
+  render() {
+    return <div>{this.props.name}</div>;
+  }
+}
+
+5. How do you implement error boundaries in React, and why do they still require class components?
+
+Error Boundaries catch JavaScript errors in child components and display a fallback UI instead of crashing the app.
+
+class ErrorBoundary extends React.Component {
+  state = { hasError: false };
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, info) {
+    console.error(error, info);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <h2>Something went wrong.</h2>;
+    }
+    return this.props.children;
+  }
+}
+
+Usage :-
+<ErrorBoundary>
+  <MyComponent />
+</ErrorBoundary>
+
+
+Why class components only?
+
+Error boundaries rely on lifecycle methods:
+componentDidCatch
+getDerivedStateFromError
+
+(Function components which rely on hooks)
+Hooks do not support error boundaries yet

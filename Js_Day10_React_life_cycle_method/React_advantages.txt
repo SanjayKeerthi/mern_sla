@@ -1,0 +1,89 @@
+1. What is React, and what problem does it solve compared to traditional DOM manipulation?
+React is a JavaScript library used to build fast, interactive user interfaces, especially for single-page applications.
+
+Problem with traditional DOM manipulation:
+Direct DOM updates are slow
+Developers manually update UI in many places
+Code becomes hard to maintain as apps grow
+
+How React solves this:
+
+Uses a component-based architecture
+Uses a Virtual DOM to minimize real DOM updates
+UI automatically updates when state changes
+
+👉 React makes UI development faster, cleaner, and more predictable.
+
+2. What is JSX in React, and how is it different from regular HTML?
+JSX (JavaScript XML) is a syntax extension that allows writing HTML-like code inside JavaScript.
+
+const element = <h1>Hello, React!</h1>;
+
+| Feature     | JSX                    | HTML              |
+| ----------- | ---------------------- | ----------------- |
+| Used in     | JavaScript             | Browser           |
+| Attributes  | `className`, `htmlFor` | `class`, `for`    |
+| Expressions | `{}` allowed           | Not allowed       |
+| Compilation | Transpiled by Babel    | Directly rendered |
+
+Example:-
+<h1>{userName}</h1>
+
+
+3. What is the difference between props and state in React? Give examples.
+Props:-
+Short for properties
+Passed from parent to child
+Read-only (cannot be changed)
+
+function Welcome(props) {
+  return <h1>Hello {props.name}</h1>;
+}
+
+State:-
+Holds component’s own data
+Can be changed
+Causes re-render when updated
+
+const [count, setCount] = useState(0);
+
+| Feature       | Props         | State            |
+| ------------- | ------------- | ---------------- |
+| Mutability    | Immutable     | Mutable          |
+| Controlled by | Parent        | Component itself |
+| Purpose       | Configuration | Dynamic data     |
+
+
+4. What is the Virtual DOM, and how does React use it to update the UI efficiently?
+The Virtual DOM is a lightweight JavaScript copy of the real DOM.
+
+How it works:
+React creates a Virtual DOM tree
+When state changes, a new Virtual DOM is created
+React compares old vs new (diffing)
+Only the changed elements are updated in the real DOM
+
+👉 This process is called reconciliation, and it makes React fast and efficient.
+
+5. What is a component in React, and what are the main types of components?
+A component is a reusable, independent UI block in React.
+
+Types of Components:
+1️⃣ Functional Components (Most Used)
+function Header() {
+  return <h1>Welcome</h1>;
+}
+Simple
+Uses Hooks
+Preferred in modern React
+
+2️⃣ Class Components
+
+class Header extends React.Component {
+  render() {
+    return <h1>Welcome</h1>;
+  }
+}
+
+Uses lifecycle methods
+Mostly used in legacy code
